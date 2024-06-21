@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
 read -p "Paste the URL : " URL
-problem=$(echo $URL| tr '/' '\n' )
 
-# get the element before the last
-problem=$(echo $problem | awk '{print $(NF-1)}')
+# the problem name will be after problems/
+# and the name ends at the next /
+problem=$(echo $URL | grep -oP 'problems/\K[^/]*')
 
-mkdir $problem
-
-touch $problem/$problem.rs
+cargo new $problem
