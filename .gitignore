@@ -1,1 +1,3 @@
-# Ignore cargo targets
+*/target/
+*/*.lock
+*.json
